@@ -1,27 +1,57 @@
-# Linkly - Backend URL Shortener Service
+# Linkly - URL Shortener Backend Service
 
-A backend-focused URL Shortener application developed using Spring Boot and MySQL. The application provides secure JWT-based authentication, URL shortening, URL redirection, click analytics, and user-specific URL management through RESTful APIs.
+## Overview
+Linkly is a backend URL shortening service built using Spring Boot. It provides secure JWT-based authentication, URL shortening, URL redirection, click tracking, and analytics through RESTful APIs.
 
-## Core Backend Features
-
-- JWT Authentication & Authorization
-- Spring Security Integration
-- RESTful API Development
-- URL Shortening Service
-- URL Redirection Handling
-- Click Tracking & Analytics
-- Spring Data JPA & Hibernate
-- MySQL Database Integration
-- Layered Architecture (Controller → Service → Repository)
+## Features
+- User Registration
+- User Login
+- JWT Authentication
+- URL Shortening
+- URL Redirection
+- Click Analytics
+- User-specific URL Management
 
 ## Tech Stack
-
 - Java 21
 - Spring Boot
 - Spring Security
-- Spring Data JPA
-- Hibernate
 - JWT
+- Spring Data JPA
 - MySQL
 - Maven
 - Lombok
+
+## Architecture
+
+Controller
+↓
+Service
+↓
+Repository
+↓
+MySQL
+
+## API Endpoints
+
+### Authentication
+POST /api/auth/public/register
+POST /api/auth/public/login
+
+### URL Management
+POST /api/urls/shorten
+GET /api/urls/myurls
+
+### Analytics
+GET /api/urls/analytics/{shortUrl}
+GET /api/urls/totalClicks
+
+### Redirect
+GET /{shortUrl}
+
+## Future Enhancements
+- Redis Caching
+- Docker Support
+- URL Expiration
+- Custom Aliases
+- Swagger Documentation
